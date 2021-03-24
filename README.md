@@ -3,15 +3,15 @@
 A react application who can search marvel heroes and save heroes list.
 The user can chose heroes as favorites
 
-## Requirement
+## Requirements
 
-Use props
-Use state
-Use maps, key
-Use Material UI
-Use local storage
-Use fetch + postman to request and verify the api
-Use routing
+Use props\
+Use state\
+Use maps, key\
+Use Material UI\
+Use local storage\
+Use fetch + postman to request and verify the api\
+Use routing\
 
 ## Available Scripts
 
