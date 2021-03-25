@@ -20,8 +20,8 @@ body {
 
 .container {
   overflow: auto;
-  min-height: 300px;
-  border-left: 1px solid steelblue;
+  min-height: 93vh;
+  border-left: 1px solid grey;
   padding: 30px;
   flex: 1;
 }

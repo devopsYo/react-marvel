@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 
 const Hero = ({ hero, onToogleFavoriteHero }) => {
 
-    const [heroDetails, setHeroDetails] = useState({})
+    const [heroDetails, setHeroDetails] = useState(hero)
 
     useEffect(() => {
         const fetchHero = async () => {

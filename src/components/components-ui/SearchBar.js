@@ -50,7 +50,7 @@ export default function SearchBar({onAdd}) {
     // Otherwise, it will return the previous value of searchTerm.
     // The goal is to only have the API call fire when user stops typing ...
     // ... so that we aren't hitting our API rapidly.
-    const debouncedSearchTerm = useDebounce(searchTerm, 500);
+    const debouncedSearchTerm = useDebounce(searchTerm, 300);
 
     // Here's where the API call happens
     // We use useEffect since this is an asynchronous action

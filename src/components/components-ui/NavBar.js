@@ -50,24 +50,21 @@ const NavBar = ({ countFavoritesHeroes }) => {
           <div>
             <Link to="/home">
               <IconButton
-                aria-haspopup="true"
-                color="black"
+                aria-haspopup="true"              
                 className={classes.icon}>
                 <Home fontSize="large" />
               </IconButton>
             </Link>
             <Link to="/history">
               <IconButton
-                aria-haspopup="true"
-                color="black"
+                aria-haspopup="true"               
                 className={classes.icon}>              
                   <History fontSize="large" />
               </IconButton>
             </Link>
             <Link to="/favorites">
               <IconButton
-                aria-haspopup="true"
-                color="black"
+                aria-haspopup="true"               
                 className={classes.icon}>
                 <StyledBadge badgeContent={countFavorites} color="secondary">
                   <Star fontSize="large" />

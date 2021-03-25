@@ -1,5 +1,5 @@
 import Home from './components/home/Home'
-import Heroes from './components/hero/Heroes'
+import Favorites from './components/favorites/Favorites'
 import { useState } from 'react'
 import NavBar from './components/components-ui/NavBar'
 import SearchBar from './components/components-ui/SearchBar'
@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 
 
 const App = () => {
-  const [showAddHero, setShowAddHero] = useState(false)
+  const [statusAddHero, setStatusAddHero] = useState(false)
 
   const [heroes, setHeroes] = useState(
     localStorage.heroes ? JSON.parse(localStorage.heroes) : []
@@ -22,21 +22,9 @@ const App = () => {
   }
 
   const toogleFavoriteHero = (id) => {
-    setHeroes(heroes.map((hero) => hero.id === id
-      ? { ...hero, isFavorite: !hero.isFavorite }
-      : hero
-    ))
-  }
-
-  const updateHero = (id, heroFromServer) => {
-    console.log(heroFromServer)
-    setHeroes(heroes.map((hero) => hero.id === id
-      ? {
-        ...hero,
-        description: heroFromServer.description,
-        imageUrl: `${heroFromServer.thumbnail.path}/portrait_xlarge.${heroFromServer.thumbnail.extension}`
-      } : hero
-    ))
+    let listHeroes = heroes.map((hero) => hero.id === id ? { ...hero, isFavorite: !hero.isFavorite } : hero)
+    setHeroes(listHeroes)
+    localStorage.setItem('heroes', JSON.stringify([...listHeroes ]))
   }
 
   const countFavoritesHeroes = () => {
@@ -62,16 +50,16 @@ const App = () => {
             <Route path='/home'
               exact
               render={() => (
-                <Home showAdd={showAddHero}                     
+                <Home statusAdd={statusAddHero}                     
                       onAdd={addHero} 
                       onToogleFavoriteHero={toogleFavoriteHero} 
                       heroes={heroes} 
-                      setShowAddHero={setShowAddHero}/>
+                      setStatusAddHero={setStatusAddHero}/>
               )} />
             <Route path='/favorites'
               exact
               render={() => (
-                <Heroes heroes={getFavoritesHeroes()} onToogleFavoriteHero={toogleFavoriteHero}  />
+                <Favorites heroes={getFavoritesHeroes()} onToogleFavoriteHero={toogleFavoriteHero}  />
               )} />
           </div>
         </div>
