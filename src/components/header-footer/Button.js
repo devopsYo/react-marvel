@@ -1,7 +1,11 @@
-const Button = ({color, text, onAdd}) => {
+import {updateStatusAdd} from '../../actions'
+import {useDispatch} from 'react-redux'
+
+const Button = ({color, text}) => {
+    const dispatch = useDispatch()
     return (
         <button 
-           onClick={onAdd}
+           onClick={()=> dispatch(updateStatusAdd())}
            style={{backgroundColor: color}}
            className = 'btn'>{text}
          </button>

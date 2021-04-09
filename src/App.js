@@ -8,7 +8,6 @@ import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-d
 
 
 const App = () => {
-  const [statusAddHero, setStatusAddHero] = useState(false)
 
   const [heroes, setHeroes] = useState(
     localStorage.heroes ? JSON.parse(localStorage.heroes) : []
@@ -24,7 +23,7 @@ const App = () => {
   const toogleFavoriteHero = (id) => {
     let listHeroes = heroes.map((hero) => hero.id === id ? { ...hero, isFavorite: !hero.isFavorite } : hero)
     setHeroes(listHeroes)
-    localStorage.setItem('heroes', JSON.stringify([...listHeroes ]))
+    localStorage.setItem('heroes', JSON.stringify([...listHeroes]))
   }
 
   const countFavoritesHeroes = () => {
@@ -41,31 +40,25 @@ const App = () => {
         <NavBar countFavoritesHeroes={countFavoritesHeroes} />
         <div className='app'>
           <SearchBar onAdd={addHero} />
-          <div className='container'>    
-          <Switch>   
-            <Route path='/'
-              exact
-              render={() => (
-                <Redirect to="/home" />
-              )} />
-            <Route path='/home'     
-              exact                      
-              render={() => (
-                <Home statusAdd={statusAddHero}                     
-                      onAdd={addHero} 
-                      onToogleFavoriteHero={toogleFavoriteHero} 
-                      heroes={heroes} 
-                      setStatusAddHero={setStatusAddHero}/>
-              )} />             
-              <Route path='/home/toto'                                              
-                     render={() => (
-                      <Favorites heroes={getFavoritesHeroes()} onToogleFavoriteHero={toogleFavoriteHero}  />
-              )} />              
-            <Route path='/favorites'             
-              render={() => (
-                <Favorites heroes={getFavoritesHeroes()} onToogleFavoriteHero={toogleFavoriteHero}  />
-              )} />            
-              </Switch>   
+          <div className='container'>
+            <Switch>
+              <Route path='/'
+                exact
+                render={() => (
+                  <Redirect to="/home" />
+                )} />
+              <Route path='/home'
+                exact
+                render={() => (
+                  <Home onAdd={addHero}
+                    onToogleFavoriteHero={toogleFavoriteHero}
+                    heroes={heroes} />
+                )} />
+              <Route path='/favorites'
+                render={() => (
+                  <Favorites heroes={getFavoritesHeroes()} onToogleFavoriteHero={toogleFavoriteHero} />
+                )} />
+            </Switch>
           </div>
         </div>
       </div>
