@@ -4,7 +4,7 @@ import { useState } from 'react'
 import NavBar from './components/components-ui/NavBar'
 import SearchBar from './components/components-ui/SearchBar'
 
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 
 
 const App = () => {
@@ -41,26 +41,31 @@ const App = () => {
         <NavBar countFavoritesHeroes={countFavoritesHeroes} />
         <div className='app'>
           <SearchBar onAdd={addHero} />
-          <div className='container'>          
+          <div className='container'>    
+          <Switch>   
             <Route path='/'
               exact
               render={() => (
                 <Redirect to="/home" />
               )} />
-            <Route path='/home'
-              exact
+            <Route path='/home'     
+              exact                      
               render={() => (
                 <Home statusAdd={statusAddHero}                     
                       onAdd={addHero} 
                       onToogleFavoriteHero={toogleFavoriteHero} 
                       heroes={heroes} 
                       setStatusAddHero={setStatusAddHero}/>
-              )} />
-            <Route path='/favorites'
-              exact
+              )} />             
+              <Route path='/home/toto'                                              
+                     render={() => (
+                      <Favorites heroes={getFavoritesHeroes()} onToogleFavoriteHero={toogleFavoriteHero}  />
+              )} />              
+            <Route path='/favorites'             
               render={() => (
                 <Favorites heroes={getFavoritesHeroes()} onToogleFavoriteHero={toogleFavoriteHero}  />
-              )} />
+              )} />            
+              </Switch>   
           </div>
         </div>
       </div>

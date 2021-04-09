@@ -1,6 +1,7 @@
 import Hero from './Hero'
 
-const Heroes = ({heroes, onToogleFavoriteHero}) => {
+const Heroes = ({heroes, onToogleFavoriteHero, match}) => {
+
     return (
         <div>
             {heroes.map((hero) => (

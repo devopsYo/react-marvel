@@ -105,8 +105,8 @@ export default function SearchBar({onAdd}) {
                                 </ListItemAvatar>
                                 <ListItemText id={result.id} primary={result.name} />
                                 <ListItemSecondaryAction>
-                                    <IconButton edge="end" aria-label="add">
-                                        <AddCircleIcon style={{ color: 'green' }} fontSize="large" onClick={() => onAdd({name: result.name})}/>
+                                    <IconButton edge="end" aria-label="add" onClick={() => onAdd({name: result.name})}>
+                                        <AddCircleIcon style={{ color: 'green' }} fontSize="large"/>
                                     </IconButton>
                                 </ListItemSecondaryAction>
                             </ListItem>
