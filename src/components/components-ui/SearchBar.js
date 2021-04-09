@@ -12,6 +12,8 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import React, { useState, useEffect } from 'react';
 import useDebounce from '../../resource/hooks/use-debounce';
+import {useDispatch} from 'react-redux'
+import {addHero} from '../../actions'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -35,7 +37,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 // Usage
-export default function SearchBar({onAdd}) {
+export default function SearchBar() {
+    const dispatch = useDispatch()
+
     const classes = useStyles();
     // State and setter for search term
     const [searchTerm, setSearchTerm] = useState('');
@@ -105,7 +109,7 @@ export default function SearchBar({onAdd}) {
                                 </ListItemAvatar>
                                 <ListItemText id={result.id} primary={result.name} />
                                 <ListItemSecondaryAction>
-                                    <IconButton edge="end" aria-label="add" onClick={() => onAdd({name: result.name})}>
+                                    <IconButton edge="end" aria-label="add" onClick={() => dispatch(addHero({name: result.name}))}>
                                         <AddCircleIcon style={{ color: 'green' }} fontSize="large"/>
                                     </IconButton>
                                 </ListItemSecondaryAction>

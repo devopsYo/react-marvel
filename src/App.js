@@ -13,13 +13,6 @@ const App = () => {
     localStorage.heroes ? JSON.parse(localStorage.heroes) : []
   )
 
-  const addHero = (hero) => {
-    const id = heroes.length + 1
-    const newHero = { id, ...hero }
-    setHeroes([...heroes, newHero])
-    localStorage.setItem('heroes', JSON.stringify([...heroes, newHero]))
-  }
-
   const toogleFavoriteHero = (id) => {
     let listHeroes = heroes.map((hero) => hero.id === id ? { ...hero, isFavorite: !hero.isFavorite } : hero)
     setHeroes(listHeroes)
@@ -39,7 +32,7 @@ const App = () => {
       <div>
         <NavBar countFavoritesHeroes={countFavoritesHeroes} />
         <div className='app'>
-          <SearchBar onAdd={addHero} />
+          <SearchBar />
           <div className='container'>
             <Switch>
               <Route path='/'
@@ -50,9 +43,7 @@ const App = () => {
               <Route path='/home'
                 exact
                 render={() => (
-                  <Home onAdd={addHero}
-                    onToogleFavoriteHero={toogleFavoriteHero}
-                    heroes={heroes} />
+                  <Home onToogleFavoriteHero={toogleFavoriteHero} />
                 )} />
               <Route path='/favorites'
                 render={() => (

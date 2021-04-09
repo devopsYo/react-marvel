@@ -1,7 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from 'react'
+import {useDispatch} from 'react-redux'
+import {addHero} from '../../actions'
 
-const AddHero = ({onAdd}) => {
+const AddHero = () => {
+    const dispatch = useDispatch()
     const [name, setName] = useState('')
     const [isFavorite, setFavorite] = useState(false)
 
@@ -11,7 +14,7 @@ const AddHero = ({onAdd}) => {
             alert('Please add a hero')
             return 
         }
-        onAdd({name, isFavorite})   
+        dispatch(addHero({name, isFavorite}))   
         setName('')
         setFavorite(false)
     }
