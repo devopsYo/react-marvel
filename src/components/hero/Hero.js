@@ -1,9 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect } from 'react'
+import {useDispatch} from 'react-redux'
+import {toogleFavoriteHero} from '../../actions'
 
-
-const Hero = ({ hero, onToogleFavoriteHero }) => {
-
+const Hero = ({ hero }) => {
+    const dispatch = useDispatch()
     const [heroDetails, setHeroDetails] = useState(hero)
 
     useEffect(() => {
@@ -46,7 +47,7 @@ const Hero = ({ hero, onToogleFavoriteHero }) => {
                 </div>
             </div>
             <div>
-                <FontAwesomeIcon icon={hero.isFavorite ? ['fas', 'star'] : ['far', 'star']} style={{ color: '#ffa500' }} onClick={() => onToogleFavoriteHero(hero.id)} />
+                <FontAwesomeIcon icon={hero.isFavorite ? ['fas', 'star'] : ['far', 'star']} style={{ color: '#ffa500' }} onClick={() => dispatch(toogleFavoriteHero(hero.id))} />
             </div>
         </div>
     )

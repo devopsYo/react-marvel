@@ -1,11 +1,11 @@
 import Hero from './Hero'
 
-const Heroes = ({heroes, onToogleFavoriteHero}) => {
+const Heroes = ({heroes}) => {
 
     return (
         <div>
             {heroes.map((hero) => (
-               <Hero key={hero.id} hero={hero} onToogleFavoriteHero={onToogleFavoriteHero} />
+               <Hero key={hero.id} hero={hero} />
             ))}
         </div>
     )

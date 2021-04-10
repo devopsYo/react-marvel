@@ -10,3 +10,10 @@ export const addHero = (hero) => {
         payload: hero
     }
 }
+
+export const toogleFavoriteHero = (id) => {
+    return {
+        type: 'TOOGLE_FAVORITE_HERO',
+        payload: id
+    }
+}

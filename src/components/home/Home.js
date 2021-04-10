@@ -4,7 +4,7 @@ import AddHero from '../hero/AddHero'
 import {useSelector} from 'react-redux'
 
 
-const Home = ({ onAdd, onToogleFavoriteHero }) => {
+const Home = () => {
     const statusAddHero = useSelector(state => state.statusAddHero)
     const heroes = useSelector(state => state.heroes)
 
@@ -13,7 +13,7 @@ const Home = ({ onAdd, onToogleFavoriteHero }) => {
             <Header title='Marvel Heroes'
                 statusAdd={statusAddHero} showAdd={true}/>
             {statusAddHero && <AddHero />}
-            <Heroes heroes={heroes} onToogleFavoriteHero={onToogleFavoriteHero} />
+            <Heroes heroes={heroes} />
         </>
     )
 }
