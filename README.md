@@ -23,8 +23,8 @@ Flexibilité contrairement à Angular car React.js nous permet de choisir entre 
 De plus, React.js a des hautes performances grace au mecanisme du Virtual Dom.
 
 3- Qu'est ce que le virtual DOM?\
-Les manipulations sur le DOM sont des opérations qui sont lourdes, détruire et recreer tout le DOM peut prendre du temps, faire ralentir ou faire bugger notre application web.\
-Le virtual DOM, c'est une cope du vrai DOM et quand il y aura des évènements qui vont se produire dans notre application, c'est la virtual DOM qui va changer. React va comparer le virtual DOM et le vrai DOM, puis modifier le vrai DOM en fonction.
+Les manipulations sur le DOM sont des opérations qui sont lourdes. En effet, détruire et recreer tout le DOM peut prendre du temps, faire ralentir ou faire bugger notre application web.\
+Le virtual DOM est une cope du vrai DOM et lorqu' il y aura des évènements qui vont se produire dans notre application, c'est le virtual DOM qui va changer. React va comparer le virtual DOM et le vrai DOM, qui sera modifier en conséquence.
 
 4- Qu'est ce que le jsx?\
 Le jsx est une extension du langage javascript. On code en jsx et React traduira le jsx en javascript. La synthaxe ressemble au html.
@@ -40,7 +40,7 @@ Un changement dans nos Props ou dans notre state entrainera un ré-render de nos
 Les Props en React sont des propriétés que l'on passe au component.
 
 8- Quelle est la différence entre les Props et le State dans un component React?\
-Les Props contrairement au state sont read-only(en lecture seule).
+Les Props, contrairement au state, sont read-only(en lecture seule).
 
 9- Quelle est la différence entre un application Stateful et Stateless?\
 Une application Stateful est une application qui a un(/plusieurs) state(s) contrairement à une application stateless.
@@ -48,11 +48,11 @@ Une application Stateful est une application qui a un(/plusieurs) state(s) contr
 10- Qu'est ce que le LifeCycle dans une application React? Quelles sont les différentes phases du cycle de vie d'une application React?\
 Le lifeCycle est le cycle de vie d'une application. Le LifeCycle en React comporte 3 phases: \
 Mounting: le component est créé et il va être monté dans le DOM.\
-Updating, le component va être ré-rendu lorsque ses props ou son state vont changés.\
-Unmounting, le component va être enlevé du DOM.
+Updating: le component va être ré-rendu lorsque ses props ou son state vont changer.\
+Unmounting: le component va être enlevé du DOM.
 
 11- Donnez le nom d'une library UI pour React et le nom de 5 components UI de cette library.\
-Material UI est une library UI populaire pour React et d'autres frameworks js. Elle comporte notamment les components ui Paper, App Bar, Accordion, Progress, Dialog, Snackbar, Badge, List,.. .
+Material UI est une library UI populaire pour React et d'autres frameworks js. Elle comporte notamment les components ui: Paper, App Bar, Accordion, Progress, Dialog, Snackbar, Badge, List,.. .
 
 12- Quelle est la différence entre npm et npx?\
 Npm est un package manager et permet de rajouter a notre projet des packages, librairies qui se trouvent le npm registery(serveurs de npm).\
